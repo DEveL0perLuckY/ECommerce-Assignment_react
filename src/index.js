@@ -3,21 +3,21 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Dashboard from "./Pages/DashBoard";
-import About from "./Pages/About";
-import Pricing from "./Pages/Pricing";
 import Layout from "./Layout";
-import Home from "./Pages/Home";
+import Homepage from "./Pages/Homepage";
+import PaymentPage from "./Pages/PaymentPage";
+import ProductListingPage from "./Pages/ProductListingPage";
+import CheckoutPage from "./Pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/dashboard", element: <Dashboard /> },
-      { path: "/about", element: <About /> },
-      { path: "/pricing", element: <Pricing /> },
+      { path: "/", element: <Homepage /> },
+      { path: "/payment", element: <PaymentPage /> },
+      { path: "/productListing", element: <ProductListingPage /> },
+      { path: "/checkout/:productId", element: <CheckoutPage /> },
     ],
   },
 ]);
