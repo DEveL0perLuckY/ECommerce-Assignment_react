@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom';
 function Homepage() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 5;
+  const productsPerPage = 6;
   const navigate = useNavigate();
 
   useEffect(() => {
     async function getProducts() {
       const fetchedProducts = await fetchProducts();
       setProducts(fetchedProducts);
+      console.log(fetchedProducts);
     }
     getProducts();
   }, []);
@@ -35,6 +36,7 @@ function Homepage() {
       {/* Card layout */}
       <div className="row">
         {currentProducts.map((product) => (
+        
           <div className="col-md-4 mb-4" key={product.id}>
             <div className="card h-100">
               <img
@@ -46,7 +48,7 @@ function Homepage() {
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text">{product.description}</p>
-                <p className="card-text"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+                <p className="card-text"><strong>Price:</strong> ${product.price}</p>
                 <p className="card-text"><strong>Category:</strong> {product.category}</p>
                 <p className="card-text"><strong>Stock:</strong> {product.stock}</p>
               </div>
